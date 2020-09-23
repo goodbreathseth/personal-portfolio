@@ -7,13 +7,12 @@ window.onload = function () {
 			sections[i].style.height = window.innerHeight + "px";
 		}
 	
-		let background = document.getElementsByClassName("background")[0];
-		background.style.height = window.innerHeight + "px"
+		// let background = document.getElementsByClassName("background")[0];
+		// background.style.height = window.innerHeight + "px"
 	}
 
 	setHeights();
-	// window.onresize = setHeights();
-	window.addEventListener("resize", setHeights);
+	// window.addEventListener("resize", setHeights);
 
   // Position stars on screen
   let firstStar = document.getElementsByClassName("star_container")[0];
@@ -39,22 +38,41 @@ window.onload = function () {
 			star.style.background = "#FFFEF8";
 		}
 
-    // Set lax attribute
-		if (Math.random() >= 0.5) {
-			star.setAttribute("data-lax-anchor", "#section_2");
-		}
-		else {
-			star.setAttribute("data-lax-anchor", "#section_1");
-		}
-			
+    // Set lax attribute - alternate between two groups that fade in and out
+    if (Math.random() >= 0.5) {
+      let random = Math.random() * (1.2 - .5) + .5;
+      star.setAttribute(
+        "data-lax-opacity",
+        "0 1, (vh*" + random + ") 0, (vh*1.5) 1 | loop=(vh*1.5)"
+      );
+    }
+    else {
+      let random = Math.random() * (1.8 - .5) + .5;
+			star.setAttribute(
+        "data-lax-opacity",
+        "0 1, (vh*.8) 0, (vh*1.5) 1 | loop=(vh*1.5) offset=(vh*" + random  + ")"
+      );
+    }
+    
+    // Cause some to be shooting stars
+    if (i % 4 == 0) {
+      star.setAttribute("data-lax-preset", "driftRight eager");
+      if (i % 8 == 0) {
+        star.setAttribute("data-lax-anchor", "#section_3")
+      }
+    }
 
     // Set the parallax depth
     starChildren[i].setAttribute("data-depth", Math.random());
   }
 
+
+
   // Set up parallax
   var scene = document.getElementById("scene");
   var parallaxInstance = new Parallax(scene);
+
+
 
   // Setup lax
   lax.setup();
@@ -63,6 +81,8 @@ window.onload = function () {
     window.requestAnimationFrame(updateLax);
   };
   window.requestAnimationFrame(updateLax);
+
+
 
   // Set up typeit
   new TypeIt(".header", {
@@ -76,36 +96,36 @@ window.onload = function () {
   })
     .type("hello.")
     .pause(500)
-    .break()
-    .type("welcome to my site!")
-      .pause(2000)
-      .delete(19)
-      .pause(500)
-      .break()
-      .type("i'm a")
-      .break()
-      .type("software developer...")
-      .pause(1000)
-      .delete(21)
-      .type("designer...")
-      .pause(1000)
-      .delete(11)
-      .type("frontend engineer...")
-      .pause(1000)
-      .delete(20)
-      .type("CSS ninja...")
-      .pause(600)
-      .delete(12)
-      .type("musician...")
-      .pause(500)
-      .delete(11)
-      .type("ginger...")
-      .pause(400)
-      .delete(9)
-      .pause(1600)
-      .delete(2)
-      .break()
-      .pause(500)
-      .type("Seth")
+    // .break()
+    // .type("welcome to my site!")
+    //   .pause(2000)
+      // .delete(19)
+      // .pause(500)
+      // .break()
+      // .type("i'm a")
+      // .break()
+      // .type("software developer...")
+      // .pause(1000)
+      // .delete(21)
+      // .type("designer...")
+      // .pause(1000)
+      // .delete(11)
+      // .type("frontend engineer...")
+      // .pause(1000)
+      // .delete(20)
+      // .type("CSS ninja...")
+      // .pause(400)
+      // .delete(12)
+      // .type("musician...")
+      // .pause(400)
+      // .delete(11)
+      // .type("ginger...")
+      // .pause(300)
+      // .delete(9)
+      // .pause(1600)
+      // .delete(2)
+      // .break()
+      // .pause(500)
+      // .type("Seth")
     .go();
 }
