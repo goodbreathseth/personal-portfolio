@@ -83,49 +83,48 @@ window.onload = function () {
   window.requestAnimationFrame(updateLax);
 
 
-
   // Set up typeit
-  new TypeIt(".header", {
+  let header = new TypeIt(".header", {
     deleteSpeed: 0,
     afterComplete: async (step, instance) => {
-      document.getElementById("signalDown").classList.remove("hidden");
-      document
-        .getElementById("innerWrapper")
-        .classList.add("animate__animated", "animate__fadeInUpBig");
+      document.getElementById("signalDown").classList.remove("invisible");
+      // document
+      //   .getElementById("innerWrapper")
+      //   .classList.add("animate__animated", "animate__fadeInUpBig");
+      new TypeIt(".checkoutMyStuff").type("check out my stuff!").go();
     },
   })
     .type("hello.")
     .pause(500)
-    // .break()
-    // .type("welcome to my site!")
-    //   .pause(2000)
-      // .delete(19)
-      // .pause(500)
-      // .break()
-      // .type("i'm a")
-      // .break()
-      // .type("software developer...")
-      // .pause(1000)
-      // .delete(21)
-      // .type("designer...")
-      // .pause(1000)
-      // .delete(11)
-      // .type("frontend engineer...")
-      // .pause(1000)
-      // .delete(20)
-      // .type("CSS ninja...")
-      // .pause(400)
-      // .delete(12)
-      // .type("musician...")
-      // .pause(400)
-      // .delete(11)
-      // .type("ginger...")
-      // .pause(300)
-      // .delete(9)
-      // .pause(1600)
-      // .delete(2)
-      // .break()
-      // .pause(500)
-      // .type("Seth")
+    .break()
+    .type("welcome to my site!")
+      .pause(2000)
+      .break()
+      .break()
+      .type("i'm a")
+      .break()
+      .type("software developer...")
+      .pause(1000)
+      .delete(21)
+      .type("designer...")
+      .pause(1000)
+      .delete(11)
+      .type("frontend engineer...")
+      .pause(1000)
+      .delete(20)
+      .type("CSS ninja...")
+      .pause(400)
+      .delete(12)
+      .type("musician...")
+      .pause(400)
+      .delete(11)
+      .type("ginger...")
+      .pause(300)
+      .delete(9)
+      .pause(1600)
+      .delete(2)
+      .break()
+      .pause(500)
+      .type("Seth.")
     .go();
 }
