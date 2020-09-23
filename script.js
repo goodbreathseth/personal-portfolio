@@ -40,6 +40,11 @@ window.onload = function () {
 
     // Set lax attribute - alternate between two groups that fade in and out
     if (Math.random() >= 0.5) {
+      // First, cause some to be shooting stars
+      star.setAttribute("data-lax-preset", "leftToRight eager");
+      if (Math.random() >= 0.5) {
+        star.setAttribute("data-lax-anchor", "#section_3");
+      }
       let random = Math.random() * (1.2 - .5) + .5;
       star.setAttribute(
         "data-lax-opacity",
@@ -54,13 +59,13 @@ window.onload = function () {
       );
     }
     
-    // Cause some to be shooting stars
-    if (i % 4 == 0) {
-      star.setAttribute("data-lax-preset", "driftRight eager");
-      if (i % 8 == 0) {
-        star.setAttribute("data-lax-anchor", "#section_3")
-      }
-    }
+    // // Cause some to be shooting stars
+    // if (Math.random() >= 0.5) {
+    //   star.setAttribute("data-lax-preset", "leftToRight eager");
+    //   if (Math.random() >= 0.5) {
+    //     star.setAttribute("data-lax-anchor", "#section_3");
+    //   }
+    // }
 
     // Set the parallax depth
     starChildren[i].setAttribute("data-depth", Math.random());
