@@ -56,6 +56,9 @@ h2 {
     font-size: 14vw;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+h2.padded {
     padding-top: 15vh;
 }
 
@@ -70,6 +73,8 @@ h2 {
 @media only screen and (min-width: 600px) {
     h2 {
         font-size: 4rem;
+    }
+    h2.padded {
         padding-top: 20vh
     }
 }
@@ -123,13 +128,13 @@ section {
 }
 
 .animate_ping {
-    position: absolute;
+    /* position: absolute;
     top:0;
     bottom:0;
     left:0;
     right:0;
     z-index: -1;
-    background: #fff;
+    background: #fff; */
     animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
@@ -146,4 +151,9 @@ section {
 
 .lax[data-lax-translate-x*=" "] {
     transition: transform ease-out .5s;
+  }
+
+  a {
+      color:#fff;
+      text-decoration: none;
   }
