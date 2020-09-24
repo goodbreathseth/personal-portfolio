@@ -22,8 +22,7 @@ html {
     left: 0;
     right: 0;
     height: 110vh;
-    background: linear-gradient(to left top, #040020, #000000, #0D0015);
-    /* background: #000; */
+    background: linear-gradient(to left top, #0A0B3A, #000000, #0D0015);
     z-index: -1;
 }
 .star {
@@ -37,7 +36,7 @@ html {
 
 #signalDown {
     position: absolute;
-    bottom: 2em;
+    bottom: 1rem;
     left: 0;
     right: 0;
     margin-left: auto;

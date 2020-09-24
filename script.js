@@ -87,7 +87,7 @@ window.onload = function () {
         skillh2s[i].classList.add("hidden");
           skillh2s[i + 1].classList.remove("hidden");
           skillh2s[i + 1].classList.add("animate__flipInX");
-      }, 400);
+      }, 500);
     }
   }
 
@@ -116,7 +116,7 @@ window.onload = function () {
 
             addAnimations(i, skillh2s);
             i++
-          }, 800)
+          }, 1500)
         }
         }).type("a software developer.").go();
       
