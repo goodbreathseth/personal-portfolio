@@ -8,9 +8,12 @@ body {
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
+    /* overflow-y: scroll; 
+    -webkit-overflow-scrolling: touch; */
 }
 html {
-    scroll-snap-type: y mandatory;
+    /* overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; */
 }
 
 .background {
@@ -149,9 +152,14 @@ section {
   }
 }
 
-.lax[data-lax-translate-x*=" "] {
-    transition: transform ease-out .5s;
-  }
+/* CSS for other than iOS devices */ 
+@supports not (-webkit-touch-callout: none) {
+  .lax[data-lax-translate-x*=" "] {
+      will-change: transform;
+      -webkit-transform: translateZ(0px);
+      transition: transform ease-out .5s;
+    }
+}
 
   a {
       color:#fff;
