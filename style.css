@@ -59,6 +59,14 @@ h2 {
     padding-top: 15vh;
 }
 
+.skills {
+    padding-top: 0;
+}
+
+.checkoutMyStuff {
+    margin-bottom: 4px;
+}
+
 @media only screen and (min-width: 600px) {
     h2 {
         font-size: 4rem;

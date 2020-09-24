@@ -87,16 +87,47 @@ window.onload = function () {
   };
   window.requestAnimationFrame(updateLax);
 
+  let interval;
+  function addAnimations(i, skillh2s) {
+    if (i != skillh2s.length - 1) {
+      skillh2s[i].classList.add("animate__flipOutX");
+      setTimeout(() => {
+        skillh2s[i].classList.add("hidden");
+          skillh2s[i + 1].classList.remove("hidden");
+          skillh2s[i + 1].classList.add("animate__flipInX");
+      }, 400);
+    }
+  }
 
   // Set up typeit
   let header = new TypeIt(".header", {
     deleteSpeed: 0,
+    lifeLike: true,
     afterComplete: async (step, instance) => {
-      document.getElementById("signalDown").classList.remove("invisible");
-      // document
-      //   .getElementById("innerWrapper")
-      //   .classList.add("animate__animated", "animate__fadeInUpBig");
-      new TypeIt(".checkoutMyStuff").type("check out my stuff!").go();
+      
+      header.destroy();
+      let skills = new TypeIt(".skills", {
+        afterComplete: async () => {
+          skills.destroy();
+
+
+          let skillh2s = document.getElementsByClassName("skills")
+          let i = 0;
+          interval = setInterval(() => {
+            if (i == skillh2s.length - 1) {
+              // Stop the recursive call
+              clearInterval(interval);
+
+              document.getElementById("signalDown").classList.remove("invisible");
+              let checkout = new TypeIt(".checkoutMyStuff", {afterComplete: async() => { checkout.destroy()}}).type("check out my stuff!").go();
+            }
+
+            addAnimations(i, skillh2s);
+            i++
+          }, 800)
+        }
+        }).type("a software developer").go();
+      
     },
   })
     .type("hello.")
@@ -106,30 +137,30 @@ window.onload = function () {
       .pause(2000)
       .break()
       .break()
-      .type("i'm a")
-      .break()
-      .type("software developer...")
-      .pause(1000)
-      .delete(21)
-      .type("designer...")
-      .pause(1000)
-      .delete(11)
-      .type("frontend engineer...")
-      .pause(1000)
-      .delete(20)
-      .type("CSS ninja...")
-      .pause(400)
-      .delete(12)
-      .type("musician...")
-      .pause(400)
-      .delete(11)
-      .type("ginger...")
-      .pause(300)
-      .delete(9)
-      .pause(1600)
-      .delete(2)
-      .break()
-      .pause(500)
-      .type("Seth.")
+      .type("i'm")
+      // .break()
+      // .type("software developer...")
+      // .pause(1000)
+      // .delete(21)
+      // .type("designer...")
+      // .pause(1000)
+      // .delete(11)
+      // .type("frontend engineer...")
+      // .pause(1000)
+      // .delete(20)
+      // .type("CSS ninja...")
+      // .pause(400)
+      // .delete(12)
+      // .type("musician...")
+      // .pause(400)
+      // .delete(11)
+      // .type("ginger...")
+      // .pause(300)
+      // .delete(9)
+      // .pause(1600)
+      // .delete(2)
+      // .break()
+      // .pause(500)
+      // .type("Seth.")
     .go();
 }
