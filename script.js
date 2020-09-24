@@ -58,14 +58,6 @@ window.onload = function () {
         "0 1, (vh*.8) 0, (vh*1.5) 1 | loop=(vh*1.5) offset=(vh*" + random  + ")"
       );
     }
-    
-    // // Cause some to be shooting stars
-    // if (Math.random() >= 0.5) {
-    //   star.setAttribute("data-lax-preset", "leftToRight eager");
-    //   if (Math.random() >= 0.5) {
-    //     star.setAttribute("data-lax-anchor", "#section_3");
-    //   }
-    // }
 
     // Set the parallax depth
     starChildren[i].setAttribute("data-depth", Math.random());
@@ -119,14 +111,14 @@ window.onload = function () {
               clearInterval(interval);
 
               document.getElementById("signalDown").classList.remove("invisible");
-              let checkout = new TypeIt(".checkoutMyStuff", {afterComplete: async() => { checkout.destroy()}}).type("check out my stuff!").go();
+              let checkout = new TypeIt(".checkoutMyStuff", {afterComplete: async() => { checkout.destroy()}}).type("check out my work!").go();
             }
 
             addAnimations(i, skillh2s);
             i++
           }, 800)
         }
-        }).type("a software developer").go();
+        }).type("a software developer.").go();
       
     },
   })
