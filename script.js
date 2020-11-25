@@ -8,7 +8,7 @@ window.onload = function () {
     } else if (window.innerWidth < 900) {
       height = window.innerHeight * 0.66;
     } else {
-      height = window.innerHeight;
+      height = window.innerHeight * 0.85;
     }
     height += "px";
     for (let i = 1; i < sections.length; i++) {
@@ -43,7 +43,7 @@ window.onload = function () {
     star.style.top = Math.random() * 100 + "vh";
 
     // Set width
-    let size = Math.random() * (5 - 0.5) + 0.5;
+    let size = Math.random() * (7 - 0.5) + 0.5;
     star.style.width = size + "px";
     star.style.height = size + "px";
 
