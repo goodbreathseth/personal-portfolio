@@ -1,143 +1,154 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    color: #fff;
-    font-weight: 700;
-    font-size: 20px;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    /* overflow-y: scroll; 
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  /* overflow-y: scroll; 
     -webkit-overflow-scrolling: touch; */
 }
 html {
-    /* overflow-y: scroll;
+  /* overflow-y: scroll;
     -webkit-overflow-scrolling: touch; */
 }
 
 .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 110vh;
-    background: linear-gradient(to left top, #0A0B3A, #000000, #0D0015);
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 110vh;
+  background: linear-gradient(to left top, #0a0b3a, #000000, #0d0015);
+  z-index: -1;
 }
 .star {
-    position: absolute;
-    border-radius: 100%;
-    background: #F9EF95;
-    width: 0.25rem;
-    height: 0.25rem;
+  position: absolute;
+  border-radius: 100%;
+  background: #f9ef95;
+  width: 0.25rem;
+  height: 0.25rem;
 }
 
-
 #signalDown {
-    position: absolute;
-    bottom: 1rem;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 8rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 8rem;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .invisible {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 h2 {
-    /* font-size: 3.2rem; */
-    font-size: 14vw;
-    margin-top: 0;
-    margin-bottom: 0;
+  /* font-size: 3.2rem; */
+  font-size: 14vw;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h2.padded {
-    padding-top: 15vh;
+  padding-top: 15vh;
 }
 
 .skills {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .checkoutMyStuff {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 @media only screen and (min-width: 600px) {
-    h2 {
-        font-size: 4rem;
-    }
-    h2.padded {
-        padding-top: 20vh
-    }
+  h2 {
+    font-size: 4rem;
+  }
+  h2.padded {
+    padding-top: 20vh;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    h2 {
-        font-size: 5rem;
-    }
+  h2 {
+    font-size: 5rem;
+  }
 }
 
 h3 {
-    font-size: 2rem;
+  font-size: min(9vw, 3.5rem);
 }
 
 .page_1 {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 section {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    /* scroll-snap-align: start; */
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  /* scroll-snap-align: start; */
 }
 
 .display_section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: radial-gradient(
+    closest-corner,
+    rgba(255, 255, 255, 0.6),
+    rgba(22, 27, 150, 0.25)
+  );
+  backdrop-filter: blur(4px);
+  box-sizing: border-box;
+  padding: 0 4%;
+  border-radius: min(6vw, 4rem);
+  margin: 8rem 0;
+  box-shadow: 4px 4px 12px #303041;
 }
 
 .img {
-    display: block;
-    height: 25%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+  display: block;
+  height: 25%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 4px;
 }
 
 @media only screen and (min-width: 600px) {
-    .img {
-        height: 33%;
-    }
+  .img {
+    height: 33%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
-    .img {
-        height: 50%;
-    }
+  .img {
+    height: 50%;
+  }
 }
 
 .animate_ping {
-    /* position: absolute;
+  /* position: absolute;
     top:0;
     bottom:0;
     left:0;
     right:0;
     z-index: -1;
     background: #fff; */
-    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes ping {
@@ -145,22 +156,27 @@ section {
     transform: scale(1);
     opacity: 1;
   }
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(1.1);
     opacity: 0;
   }
 }
 
-/* CSS for other than iOS devices */ 
+/* CSS for other than iOS devices */
 @supports not (-webkit-touch-callout: none) {
   .lax[data-lax-translate-x*=" "] {
-      will-change: transform;
-      -webkit-transform: translateZ(0px);
-      transition: transform ease-out .5s;
-    }
+    will-change: transform;
+    -webkit-transform: translateZ(0px);
+    transition: transform ease-out 0.5s;
+  }
 }
 
-  a {
-      color:#fff;
-      text-decoration: none;
-  }
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#innerWrapper {
+    cursor: pointer;
+}
